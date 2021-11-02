@@ -69,10 +69,11 @@ def Nu(**i):
 
         if Ra/(Pr*Re**2) > 10:
             f = 'free'
-        elif Ra/(Pr*Re**2) < 1:
+        elif Ra/(Pr*Re**2) < 0.1:
             f = 'forced'
         else:
             f = 'combined'
+        print(f'Coefficient is {Ra/(Pr*Re**2)}.')
         print(f'Using {f} convection approximations.')
 
     if f == 'combined':
