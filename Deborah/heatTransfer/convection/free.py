@@ -22,7 +22,7 @@ def cylinderH(Ra, Pr):
     Ra <= 1e12: [churchill_1975]
     '''
 
-    assert (Ra <= 1e12)
+    assert (Ra <= 1e12) , f'Ra = {Ra}'
     if Ra <= 1e12:
         Nu = (0.6+0.387*Ra**(1/6)/(1+(0.559/Pr)**(9/16))**(8/27))**2
 
@@ -90,7 +90,7 @@ def wallV(Ra, Pr):
     ----------
     Ra <= 1e12 and Ra >=0.1: [churchill_1975a]
     '''
-    assert (Ra <= 1e12 and Ra >=0.1)
+    assert (Ra <= 1e12 and Ra >=0.1) , f'Ra = {Ra}'
     if Ra <= 1e12 and Ra >=0.1:
         Nu = (0.825 + 0.387*Ra**(1/6)/(1+(0.492/Pr)**(9/16))**(8/27))**2
 

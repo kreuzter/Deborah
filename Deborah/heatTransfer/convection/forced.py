@@ -23,7 +23,7 @@ def pipe(Re, Pr, Cf):
     [gnielinski_1976]
     '''
 
-    assert (2300 < Re < 5e6 and 0.5 < Pr < 2300)
+    assert (2300 < Re < 5e6 and 0.5 < Pr < 2300) , f'Re = {Re}, Pr = {Pr}'
     
     if 2300 < Re < 5e6 and 0.5 < Pr < 2300:
         Nu = (Re-1000)*Pr*Cf/2/(1+12.7*np.sqrt(Cf/2)*(Pr**(2/3)-1))

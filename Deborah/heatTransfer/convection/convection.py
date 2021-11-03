@@ -32,7 +32,7 @@ def Nu2h(Nu, L, k):
 def Nu(**i):
     '''
     Nu function contains several empirical approximations for evaluation of Nusselt number.
-    For detailed info, please see also help() of heatTransfer subpackage functions.
+    For detailed info, see also help() of heatTransfer subpackage functions.
     
     Returns
     -------
