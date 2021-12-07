@@ -55,6 +55,7 @@ def f(Re, eps, D, Ed = 'H'):
         If limit of maximum steps (100) was reached and E is still > Ed.
 
     assertionError
+        - Re < 4000
         - Ed is not 'H' or float
         - Ed > 1e-2 (this is an approximate error of Haaland equation)
     
@@ -65,6 +66,7 @@ def f(Re, eps, D, Ed = 'H'):
     eps table [cengel_2020]
     '''
     
+    assert(Re > 4000), f'Re = {Re:.2f}'
     maxSteps = 100
     pomO = -1.8*np.log10(6.9/Re+(eps/D/3.7)**1.11)
     if Ed == 'H':
