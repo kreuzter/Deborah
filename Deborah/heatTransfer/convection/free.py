@@ -24,7 +24,7 @@ def cylinderH(Ra, Pr):
 
     assert (Ra <= 1e12) , f'Ra = {Ra}'
     if Ra <= 1e12:
-        Nu = (0.6+0.387*Ra**(1/6)/(1+(0.559/Pr)**(9/16))**(8/27))**2
+        Nu = (0.6+0.387*(Ra/(1+(0.559/Pr)**(9/16))**(16/9))**(1/6))**2
 
     return Nu
 
@@ -92,7 +92,7 @@ def wallV(Ra, Pr):
     '''
     assert (Ra <= 1e12 and Ra >=0.1) , f'Ra = {Ra}'
     if Ra <= 1e12 and Ra >=0.1:
-        Nu = (0.825 + 0.387*Ra**(1/6)/(1+(0.492/Pr)**(9/16))**(8/27))**2
+        Nu = (0.825 + 0.387*Ra**(1/6)/(1+(0.437/Pr)**(9/16))**(8/27))**2
 
     return Nu
 
@@ -132,7 +132,7 @@ def plateH(Ra, dir):
         assert (1e4 <= Ra <= 1e11)
         if 1e4 <= Ra <= 1e7:
             Nu = 0.54*Ra**0.25
-        elif 1e7 <= Ra >= 1e11:
+        elif 1e7 <= Ra <= 1e11:
             Nu = 0.15*Ra**(1/3)
     elif dir == 'l':
         assert (1e5 <= Ra <= 1e11)
