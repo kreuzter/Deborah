@@ -1,5 +1,36 @@
-from .. convection import free as free
-from .. convection import forced as forced
+
+from convection import free as free
+from convection import forced as forced
+
+def radiation(T, eps):
+    '''
+    
+    Parameters
+    ----------
+    
+    T : float
+        Thermodynamic temperature [K]
+    
+    eps : float
+        emissivity [-]
+        polished metals: 0.02 - 0.2
+        anodized aluminum: 0.82
+        black paint: 0.98
+        white paint: 0.9
+        water: 0.96
+        vegetation: 0.92 - 0.96
+
+    Returns
+    -------
+    
+    float
+        energy emitted from m^2 of by radiation
+    
+    References
+    ----------
+    eps from [cengel_2020]
+    '''
+    return eps*5.67e-8*T**4
 
 def Nu2h(Nu, L, k):
     '''
@@ -9,7 +40,7 @@ def Nu2h(Nu, L, k):
     ----------
     
     Nu : float
-        Nusselt nuber
+        Nusselt number
     
     L : float
         char. lenght
@@ -32,8 +63,23 @@ def Nu2h(Nu, L, k):
 def Nu(**i):
     '''
     Nu function contains several empirical approximations for evaluation of Nusselt number.
-    For detailed info, see also help() of heatTransfer subpackage functions.
+    For detailed info, see also help() of convection subpackage functions.
     
+    Parameters
+    ----------
+
+    f : string
+        'free', 'forced', 'combined', '*'
+
+        (if f=='*', internal evaluation of mechanism is performed)
+
+    Re, Ra, Pr: float
+        dimensionless numbers
+
+    L, D: float
+        geometrical dimensions
+
+
     Returns
     -------
     
@@ -55,7 +101,7 @@ def Nu(**i):
     References
     ----------
     
-    See references in heatTransfer subpackage
+    See references in convection subpackage
     '''
 
 

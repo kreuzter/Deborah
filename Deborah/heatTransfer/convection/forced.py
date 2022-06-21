@@ -17,6 +17,13 @@ def pipe(Re, Pr, Cf):
     -------
     float
         Nusselt number [-]
+
+    
+    Raises
+    ------
+    assertionError
+        - Re < 2300, Re > 5e6
+        - Pr < 0.5, Pr > 2300
     
     References
     ----------
